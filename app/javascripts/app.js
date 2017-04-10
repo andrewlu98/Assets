@@ -7,9 +7,13 @@ import { default as contract } from 'truffle-contract'
 
 // Import our contract artifacts and turn them into usable abstractions.
 import metacoin_artifacts from '../../build/contracts/MetaCoin.json'
+import etheropt_artifacts from '../../build/contracts/EtherOpt.json'
+import contract_artifacts from '../../build/contracts/Contract.json'
 
 // MetaCoin is our usable abstraction, which we'll use through the code below.
 var MetaCoin = contract(metacoin_artifacts);
+var EtherOpt = contract(etheropt_artifacts);
+var Contract = contract(contract_artifacts);
 
 // The following code is simple to show off interacting with your contracts.
 // As your needs grow you will likely need to change its form and structure.
@@ -23,6 +27,8 @@ window.App = {
 
     // Bootstrap the MetaCoin abstraction for Use.
     MetaCoin.setProvider(web3.currentProvider);
+    EtherOpt.setProvider(web3.currentProvider);
+    Contract.setProvider(web3.currentProvider);
 
     // Get the initial account balance so it can be displayed.
     web3.eth.getAccounts(function(err, accs) {
@@ -62,6 +68,31 @@ window.App = {
       console.log(e);
       self.setStatus("Error getting balance; see log.");
     });
+  },
+
+  orderContract: function() {
+    var self = this;
+
+    var calladdr = document.getElementById("calladdr").value;
+    var putaddr = document.getElementById("putaddr").value;
+    var expr = parseInt(document.getElementById("expr").value);
+    var upper = parseInt(document.getElementById("upper").value);
+    var lower = parseInt(document.getElementById("lower").value);
+    var conv = parseInt(document.getElementById("conv").value);
+    var sym = document.getElementById("sym").value;
+
+    this.setStatus("Initiating order... (please wait)");
+
+    var option;
+    Contract.deployed().then(function(instance) {
+      option = instance;
+      return option.InitializeContract(calladdr, putaddr, expr, upper, lower, conv, sym, {from: account});
+    }).then(function() {
+      self.setStatus("Order complete!");
+    }).catch(function(e) {
+      console.log(e);
+      self.setStatus("Error completing order.");
+    }); 
   },
 
   sendCoin: function() {

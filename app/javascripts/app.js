@@ -84,6 +84,14 @@ window.App = {
     this.setStatus("Initiating order... (please wait)");
 
     var option;
+
+    Contract.defaults({
+      from: account,
+      gas: 1000000,
+      gasPrice: 1000,
+      value: 0
+    });
+
     Contract.deployed().then(function(instance) {
       option = instance;
       return option.InitializeContract(calladdr, putaddr, expr, upper, lower, conv, sym, {from: account});
@@ -94,6 +102,7 @@ window.App = {
       self.setStatus("Error completing order.");
     }); 
   },
+
 
   sendCoin: function() {
     var self = this;

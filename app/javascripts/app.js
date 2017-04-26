@@ -3,17 +3,20 @@ import "../stylesheets/app.css";
 
 // Import libraries we need.
 import { default as Web3} from 'web3';
-import { default as contract } from 'truffle-contract'
+import { default as contract } from 'truffle-contract';
 
 // Import our contract artifacts and turn them into usable abstractions.
-import metacoin_artifacts from '../../build/contracts/MetaCoin.json'
-import etheropt_artifacts from '../../build/contracts/EtherOpt.json'
-import contract_artifacts from '../../build/contracts/Contract.json'
+import metacoin_artifacts from '../../build/contracts/MetaCoin.json';
+import etheropt_artifacts from '../../build/contracts/EtherOpt.json';
+import master_artifacts from '../../build/contracts/MasterContract.json';
+import bilateral_artifacts from '../../build/contracts/Bilateral.json';
+//import spawn_artifacts from '../../build/contracts/BilateralSpawn.json';
 
 // MetaCoin is our usable abstraction, which we'll use through the code below.
 var MetaCoin = contract(metacoin_artifacts);
 var EtherOpt = contract(etheropt_artifacts);
-var Contract = contract(contract_artifacts);
+var Master = contract(master_artifacts);
+var Bilateral = contract(bilateral_artifacts);
 
 // The following code is simple to show off interacting with your contracts.
 // As your needs grow you will likely need to change its form and structure.
@@ -28,7 +31,8 @@ window.App = {
     // Bootstrap the MetaCoin abstraction for Use.
     MetaCoin.setProvider(web3.currentProvider);
     EtherOpt.setProvider(web3.currentProvider);
-    Contract.setProvider(web3.currentProvider);
+    Master.setProvider(web3.currentProvider);
+    Bilateral.setProvider(web3.currentProvider);
 
     // Get the initial account balance so it can be displayed.
     web3.eth.getAccounts(function(err, accs) {
@@ -73,28 +77,32 @@ window.App = {
   orderContract: function() {
     var self = this;
 
+    var BilAddress = "0xbb2336b1b325afb5e82770aa20331c0a59373aae";
     var calladdr = document.getElementById("calladdr").value;
     var putaddr = document.getElementById("putaddr").value;
+    var address = [BilAddress, calladdr, putaddr];
+    var callhash = BilAddress;
+    var puthash = BilAddress;
     var expr = parseInt(document.getElementById("expr").value);
     var upper = parseInt(document.getElementById("upper").value);
     var lower = parseInt(document.getElementById("lower").value);
-    var conv = parseInt(document.getElementById("conv").value);
+    var prices = [upper, lower, 105, 95, 10];
     var sym = document.getElementById("sym").value;
 
     this.setStatus("Initiating order... (please wait)");
 
     var option;
 
-    Contract.defaults({
+    Master.defaults({
       from: account,
       gas: 1000000,
-      gasPrice: 1000,
+      gasPrice: 100,
       value: 0
     });
 
-    Contract.deployed().then(function(instance) {
+    Master.deployed().then(function(instance) {
       option = instance;
-      return option.InitializeContract(calladdr, putaddr, expr, upper, lower, conv, sym, {from: account});
+      return option.AddAgreement(address, callhash, puthash, expr, prices, sym, {from: account});
     }).then(function() {
       self.setStatus("Order complete!");
     }).catch(function(e) {

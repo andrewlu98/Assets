@@ -7,6 +7,13 @@
 </head>
 <body>
 
+<div class="topnav" id="myTopBar">
+  <a href="index.html">Home</a>
+  <a href="index2.html">Orders</a>
+  <a href="#about">About</a>
+</div>
+  
+  <div class="bodyStuff" id="myBodyStuff">
   <h1>Test an Option</h1>
   <br><label for="calladdr">Call Address:</label><input type="text" id="calladdr" placeholder="caller address"></input>
   <br><label for="putaddr">Put Address:</label><input type="text" id="putaddr" placeholder="putter address"></input>
@@ -15,6 +22,7 @@
   <br><label for="lower">Lower:</label><input type="text" id="lower" placeholder="lower limit"></input>
   <br><label for="conv">USD to ETH:</label><input type="text" id="conv" placeholder="conversion rate"></input>
   <br><label for="sym">Symbol:</label><input type="text" id="sym" placeholder="e.g. AAPL"></input>
+  </div>
   <br><br><button id="order" onclick="App.orderContract()">Order Option Contract</button>
   <br><br>
 

@@ -2,7 +2,7 @@
 
     import "../contracts/OraclizeI.sol";
 
-    contract MasterContract {
+    contract Master {
 
     	function addFundsToaddress(address addr) payable {}
 
@@ -81,8 +81,8 @@
     	uint256 quantity;
     	string public StockSymbol;
     	uint256 public ValueOfContract; //in wei
-    	address public MasterContractAddress = 0x4fa193cd49fce87239a9eae0489d26ca05f2d73d; //This should be the actual address
-    	MasterContract masterC = MasterContract(MasterContractAddress);
+    	address public MasterAddress = 0x4fa193cd49fce87239a9eae0489d26ca05f2d73d; //This should be the actual address
+    	Master masterC = Master(MasterAddress);
     	uint256 StockPriceInCents;
     	uint256 UpperLimit; //in cents
     	uint256 LowerLimit; //in cents
@@ -103,10 +103,10 @@
 
 
     	modifier OnlyMaster {
-    		if (msg.sender == MasterContractAddress) _;
+    		if (msg.sender == MasterAddress) _;
     	}
 
-    	function() payable { //FallBack deposits money into MasterContract
+    	function() payable { //FallBack deposits money into Master
     		masterC.addFundsToaddress.value(msg.value) (msg.sender);
     	}
     	function Bilateral(){

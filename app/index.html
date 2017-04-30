@@ -1,27 +1,110 @@
 <!DOCTYPE html>
-<html>
+<body>
 <head>
   <title>BlockOptions</title>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <script src="./app.js"></script>
 </head>
-<body>
 
-  <h1>Test an Option</h1>
-  <br><label for="calladdr">Call Address:</label><input type="text" id="calladdr" placeholder="caller address"></input>
-  <br><label for="putaddr">Put Address:</label><input type="text" id="putaddr" placeholder="putter address"></input>
-  <br><label for="expr">Expiration:</label><input type="text" id="expr" placeholder="expiration"></input>
-  <br><label for="upper">Upper:</label><input type="text" id="upper" placeholder="upper limit"></input>
-  <br><label for="lower">Lower:</label><input type="text" id="lower" placeholder="lower limit"></input>
-  <br><label for="conv">USD to ETH:</label><input type="text" id="conv" placeholder="conversion rate"></input>
-  <br><label for="sym">Symbol:</label><input type="text" id="sym" placeholder="e.g. AAPL"></input>
-  <br><br><button id="order" onclick="App.orderContract()">Order Option Contract</button>
-  <br><br>
+<div class="topnav" id="myTopBar">
+  <a href="#home">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+</div>
 
-  <span id="status"></span>
-  <br>
-  <span class="hint"><strong>Hint:</strong> open the browser developer console to view any errors and warnings.</span>
+ <div id="wrapper">
+  <h1>Sortable Table of Search Queries</h1>
+  
+  <table id="keywords" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+        <th><span>Keywords</span></th>
+        <th><span>Impressions</span></th>
+        <th><span>Clicks</span></th>
+        <th><span>CTR</span></th>
+        <th><span>Rank</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="lalign">silly tshirts</td>
+        <td>6,000</td>
+        <td>110</td>
+        <td>1.8%</td>
+        <td>22.2</td>
+      </tr>
+      <tr>
+        <td class="lalign">desktop workspace photos</td>
+        <td>2,200</td>
+        <td>500</td>
+        <td>22%</td>
+        <td>8.9</td>
+      </tr>
+      <tr>
+        <td class="lalign">arrested development quotes</td>
+        <td>13,500</td>
+        <td>900</td>
+        <td>6.7%</td>
+        <td>12.0</td>
+      </tr>
+      <tr>
+        <td class="lalign">popular web series</td>
+        <td>8,700</td>
+        <td>350</td>
+        <td>4%</td>
+        <td>7.0</td>
+      </tr>
+      <tr>
+        <td class="lalign">2013 webapps</td>
+        <td>9,900</td>
+        <td>460</td>
+        <td>4.6%</td>
+        <td>11.5</td>
+      </tr>
+      <tr>
+        <td class="lalign">ring bananaphone</td>
+        <td>10,500</td>
+        <td>748</td>
+        <td>7.1%</td>
+        <td>17.3</td>
+      </tr>
+    </tbody>
+  </table>
+ </div> 
+
+<!-- Button to open the modal -->
+<div id="buttonWrapper">
+  <button onclick="document.getElementById('id01').style.display='block'">Order</button>
+</div>
+
+<!-- The Modal (contains the Sign Up form) -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content animate">
+    <div class="container">
+      <label><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <div class="clearfix">
+      <div id="buttonCancel">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        </div>
+        <div id="buttonSignUp">
+          <button type="submit" class="signupbtn">Place Order</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+</div>
 </body>
-</html>
 
-<!-- CallAddr, address PutAddr, uint ExpTime1, uint32 Upper, uint32 Lower, uint256 USDperETH, string Symbol -->
+
+
+
+
+

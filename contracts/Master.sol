@@ -70,7 +70,7 @@
 	}
 
 
-	contract MasterContract is SafeMath {
+	contract Master is SafeMath {
 
 		uint public version = 1;
 		address public MasterContractAddress = this;
@@ -94,7 +94,7 @@
 		event MatchfailFunds(address user, string message);
 
 
-		function MasterContract(){
+		function Master(){
 			admin = msg.sender; //So far the admin has no special powers....
 			MasterContractAddress = this;
 
@@ -139,7 +139,7 @@
 
 
 
-		function AddAgreement(address[3] Addresses, bytes32 callhash, bytes32 puthash, uint expirationtime, uint[5] prices, string symbol) returns(bool) {
+		function AddAgreement(address[3] Addresses, bytes32 callhash, bytes32 puthash, uint expirationtime, uint[5] prices, string symbol) payable returns(bool) {
 		// prices = uint callprice, uint putprice, uint calltarget, uint puttarget, quantity
 		// address = BilAddress, calladdr, putaddr
 			uint callid = getAccountID(Addresses[1]);

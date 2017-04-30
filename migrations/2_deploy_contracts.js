@@ -1,6 +1,6 @@
 var EtherOpt = artifacts.require("EtherOpt");
 var Contract = artifacts.require("Contract");
-var Master = artifacts.require("MasterContract");
+var Master = artifacts.require("Master");
 var Bilateral = artifacts.require("Bilateral");
 var SafeMath = artifacts.require("SafeMath");
 //var BilateralSpawn = artifacts.require("BilateralSpawn");

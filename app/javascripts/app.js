@@ -61,19 +61,40 @@ window.App = {
   orderContract: function() {
     var self = this;
 
+    var upper;
+    var lower; 
+    var calladdr;
+    var putaddr;
+
     var BilAddress = "0xbb2336b1b325afb5e82770aa20331c0a59373aae";
-    var calladdr = document.getElementById("calladdr").value;
-    var putaddr = document.getElementById("putaddr").value;
+    var addr = document.getElementById("addr").value;
     var address = [BilAddress, calladdr, putaddr];
     var callhash = BilAddress;
     var puthash = BilAddress;
-    var expr = parseInt(document.getElementById("expr").value);
-    var upper = parseInt(document.getElementById("upper").value);
-    var lower = parseInt(document.getElementById("lower").value);
+    var opt = document.getElementById("option").value;
+    var expr = document.getElementById("expiration").innerHTML;
+    var strike = document.getElementById("strike").innerHTML;
+    var price = parseInt(document.getElementById("price").value);
+    var quantity = parseInt(document.getElementById("quantity").value);
+
     var prices = [upper, lower, 105, 95, 10];
-    var sym = document.getElementById("sym").value;
 
     this.setStatus("Initiating order... (please wait)");
+    var table;
+    if (opt == "Type: Put") {
+      table = document.getElementById("putOrders");
+    } else {
+      table = document.getElementById("callOrders");
+    }
+    var row = table.insertRow(1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    cell1.innerHTML = expr;
+    cell2.innerHTML = strike;
+    cell3.innerHTML = price;
+    cell4.innerHTML = quantity;
 
     var option;
 

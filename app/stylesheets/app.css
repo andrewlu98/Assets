@@ -3,6 +3,7 @@ body {
   margin-right: 25%;
   margin-top: 10%;
   font-family: "Open Sans", sans-serif;
+  background-color: #B7ECEA;
 }
 
 label {
@@ -17,6 +18,11 @@ input {
 }
 
 button {
+  font-size: 16px;
+  padding: 7px;
+}
+
+form {
   font-size: 16px;
   padding: 5px;
 }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BlockOptions</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <script src="./app.js"></script>
+</head>
+<body>
+
+<div class="topnav" id="myTopBar">
+  <a href="index.html">Home</a>
+  <a href="index2.html">Orders</a>
+  <a href="#about">About</a>
+</div>
+  
+  <div class="bodyStuff" id="myBodyStuff">
+  <h1>Test an Option</h1>
+  <br><label for="calladdr">Call Address:</label><input type="text" id="calladdr" placeholder="caller address"></input>
+  <br><label for="putaddr">Put Address:</label><input type="text" id="putaddr" placeholder="putter address"></input>
+  <br><label for="expr">Expiration:</label><input type="text" id="expr" placeholder="expiration"></input>
+  <br><label for="upper">Upper:</label><input type="text" id="upper" placeholder="upper limit"></input>
+  <br><label for="lower">Lower:</label><input type="text" id="lower" placeholder="lower limit"></input>
+  <br><label for="conv">USD to ETH:</label><input type="text" id="conv" placeholder="conversion rate"></input>
+  <br><label for="sym">Symbol:</label><input type="text" id="sym" placeholder="e.g. AAPL"></input>
+  </div>
+  <br><br><button id="order" onclick="App.orderContract()">Order Option Contract</button>
+  <br><br>
+
+  <span id="status"></span>
+  <br>
+</body>
+</html>
+
+<!-- CallAddr, address PutAddr, uint ExpTime1, uint32 Upper, uint32 Lower, uint256 USDperETH, string Symbol -->

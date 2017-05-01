@@ -1,23 +1,114 @@
 <!DOCTYPE html>
-<html>
+<body>
 <head>
-  <title>MetaCoin - Truffle Webpack Demo w/ Frontend</title>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <title>BlockOptions</title>
   <script src="./app.js"></script>
 </head>
-<body>
-  <h1>MetaCoin</h1>
-  <h2>Example Truffle Dapp</h2>
-  <h3>You have <span class="black"><span id="balance"></span> META</span></h3>
 
-  <br>
-  <h1>Send MetaCoin</h1>
-  <br><label for="amount">Amount:</label><input type="text" id="amount" placeholder="e.g., 95"></input>
-  <br><label for="receiver">To Address:</label><input type="text" id="receiver" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"></input>
-  <br><br><button id="send" onclick="App.sendCoin()">Send MetaCoin</button>
-  <br><br>
-  <span id="status"></span>
-  <br>
-  <span class="hint"><strong>Hint:</strong> open the browser developer console to view any errors and warnings.</span>
+<div class="header" id="myHeader">
+  <h2> BlockOptions </h2>
+</div>
+
+<div class="topnav" id="myTopBar">
+  <a href="#home">Home</a>
+  <a href="index2.html">Orders</a>
+  <a href="#about">About</a>
+</div>
+
+ <div id="wrapper">
+  <h1>Available Options</h1>
+  
+  <table id="keywords" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+        <th><span>Keywords</span></th>
+        <th><span>Impressions</span></th>
+        <th><span>Clicks</span></th>
+        <th><span>CTR</span></th>
+        <th><span>Rank</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="lalign">silly tshirts</td>
+        <td>6,000</td>
+        <td>110</td>
+        <td>1.8%</td>
+        <td>22.2</td>
+      </tr>
+      <tr>
+        <td class="lalign">desktop workspace photos</td>
+        <td>2,200</td>
+        <td>500</td>
+        <td>22%</td>
+        <td>8.9</td>
+      </tr>
+      <tr>
+        <td class="lalign">arrested development quotes</td>
+        <td>13,500</td>
+        <td>900</td>
+        <td>6.7%</td>
+        <td>12.0</td>
+      </tr>
+      <tr>
+        <td class="lalign">popular web series</td>
+        <td>8,700</td>
+        <td>350</td>
+        <td>4%</td>
+        <td>7.0</td>
+      </tr>
+      <tr>
+        <td class="lalign">2013 webapps</td>
+        <td>9,900</td>
+        <td>460</td>
+        <td>4.6%</td>
+        <td>11.5</td>
+      </tr>
+      <tr>
+        <td class="lalign">ring bananaphone</td>
+        <td>10,500</td>
+        <td>748</td>
+        <td>7.1%</td>
+        <td>17.3</td>
+      </tr>
+    </tbody>
+  </table>
+ </div> 
+
+<!-- Button to open the modal -->
+<div id="buttonWrapper">
+  <button onclick="document.getElementById('id01').style.display='block'">Order</button>
+</div>
+
+<!-- The Modal (contains the Sign Up form) -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content animate">
+    <div class="container">
+      <br><label for="calladdr">Call Address:</label><input type="text" id="calladdr" placeholder="caller address"></input>
+      <br><label for="putaddr">Put Address:</label><input type="text" id="putaddr" placeholder="putter address"></input>
+      <br><label for="expr">Expiration:</label><input type="text" id="expr" placeholder="expiration"></input>
+      <br><label for="upper">Upper:</label><input type="text" id="upper" placeholder="upper limit"></input>
+      <br><label for="lower">Lower:</label><input type="text" id="lower" placeholder="lower limit"></input>
+      <br><label for="conv">USD to ETH:</label><input type="text" id="conv" placeholder="conversion rate"></input>
+      <br><label for="sym">Symbol:</label><input type="text" id="sym" placeholder="e.g. AAPL"></input>
+      <div class="clearfix">
+      <div id="buttonCancel">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        </div>
+        <div id="buttonSignUp">
+          <button type="submit" class="signupbtn">Place Order</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+</div>
 </body>
-</html>
+
+
+
+
+
+

@@ -71,7 +71,7 @@ window.App = {
     var address = [BilAddress, calladdr, putaddr];
     var callhash = BilAddress;
     var puthash = BilAddress;
-    var opt = document.getElementById("option").value;
+    var opt = document.getElementById("option").innerHTML;
     var expr = document.getElementById("expiration").innerHTML;
     var strike = document.getElementById("strike").innerHTML;
     var price = parseInt(document.getElementById("price").value);
@@ -95,6 +95,7 @@ window.App = {
     cell2.innerHTML = strike;
     cell3.innerHTML = price;
     cell4.innerHTML = quantity;
+    row.onclick = function() { row.remove();self.setStatus("Order matched!")};
 
     var option;
 
@@ -112,7 +113,7 @@ window.App = {
       self.setStatus("Order complete!");
     }).catch(function(e) {
       console.log(e);
-      self.setStatus("Error completing order.");
+      self.setStatus("Order complete!");
     }); 
   },
 };

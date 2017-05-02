@@ -30,7 +30,7 @@
         <th><span>Call Price</span></th>
       </tr>
       <tr>
-        <td class="lalign" onclick="document.getElementById('orderBook').style.display='block'"">5/31/17</td>
+        <td class="lalign">5/31/17</td>
         <td onclick="document.getElementById('id01').style.display='block';document.getElementById('option').innerHTML='Type: Put';document.getElementById('expiration').innerHTML='5/31/17';document.getElementById('strike').innerHTML='90'"> 90</td>
         <td onclick="document.getElementById('id01').style.display='block';document.getElementById('option').innerHTML='Type: Call';document.getElementById('expiration').innerHTML='5/31/17';document.getElementById('strike').innerHTML='110'"> 110</td>
       </tr>
@@ -107,7 +107,6 @@
 
 </div>
 
-<div id="orderBook" class="modal">
 <span id="status"></span>
 <div>
 <h1> Order Book </h1>
@@ -141,9 +140,6 @@
     <tbody>
     </tbody>
   </table>
-  <span onclick="document.getElementById('orderBook').style.display='none'" class="close" title="Close Book">&times;</span>
-  <button type="button" onclick="document.getElementById('orderBook').style.display='none'" class="cancelbtn">Cancel</button>
-</div>
 </div>
 
 </body>

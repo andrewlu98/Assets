@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../stylesheets/vlad_stylesheet.css"/>
+	<script type="text/javascript" src="/Users/Apple/Blockchain/Assets/node_modules/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="../javascripts/vlad_script.js"></script>
+	<title>Decentralized Option Trading</title>
+</head>
+<body>
+	<h1>Decentralized Option Trading</h1>
+
+	<div id = "div1">
+		<div>
+			<form>
+				<select id = "selStock">
+	 				<option>AAPL</option>
+   					<option>GOOGL</option>
+   					<option>ORCL</option>
+  					<option>SNAP</option>
+  					<option>TSLA</option>
+  				</select>
+  			</form>
+		</div>
+	 	<div>
+  			<p>Current Price. API!!!</p>
+  		</div>
+  		<div>
+  			<input id = "b" type = "button" value = "select stock" onclick = "showStock()" />
+  		</div>
+  	</div>
+
+  	<div id = "div2">
+  		<table>
+			<tr>
+				<th class="col">Expiration Date</th>
+				<th class="col">Put price</th>
+				<th class="col">Call price</th>
+				<th class="col">24h Volume</th>
+			</tr>
+		</table>
+  	</div>
+
+	<!--	this code creates buttons that dropdown, but it does not create table
+
+			<div class="dropdown">
+			<button class="dropbtn">Stock</button>
+			<div class="dropdown-content">
+				<button>AAPL</button>
+				<button>GOOGL</button>
+				<button>ORCL</button>
+				<button>SNAP</button>
+				<button>TSLA</button>
+			</div>
+		</div> -->
+<!-- In <form> you need to specify "action="nameof file.extension"" -->
+<!--	<button id='bt' type="button" onclick="submitFunction()">Submit</button>
+	<p id="trial"></p>
+	<script>
+		function submitFunction() {
+			var x = document.getElementById("bt").type;
+			document.getElementById("trial").innerHTML = x;
+		}
+	</script> -->
+  	<script type="text/javascript">
+  		function showStock() {
+  			var table = document.createElement('table');
+  			var targetEl = document.getElementById("div2");
+
+  			for (var i = 0; i < 1; i++) {
+  				var tr = table.insertRow();
+  				for (var j = 0; j < 4; j++) {
+  						var td = tr.insertCell();
+  						td.appendChild(document.createTextNode('Almost ready'));
+  				}
+  			}
+  			document.body.appendChild(table);
+  		}
+  	</script>
+</body>
+</html>
